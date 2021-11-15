@@ -7,20 +7,34 @@ import CreateGame from "./components/CreateGame.js";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
 import ErrorPage from "./components/ErrorPage.js";
+import GameDetails from "./components/GameDetails.js";
 
 function App() {
   const [page, setPage] = useState('/home');
 
-  const routes = {
-    '/home': < WelcomeWorld />,
-    '/games': <GameCatalog />,
-    '/login': <Login />,
-    '/register': <Register />,
-    '/create-game': <CreateGame />
-  };
-
   const navigationChangeHandler = (path) => {
+    console.log(path);
     setPage(path);
+  }
+
+
+
+  const router = (path) => {
+    let pathNames = path.split('/');
+
+    let rootPath = pathNames[1];
+    let argument = pathNames[2];
+
+    const routes = {
+      'home': < WelcomeWorld />,
+      'games': <GameCatalog navigationChangeHandler={navigationChangeHandler} />,
+      'login': <Login />,
+      'register': <Register />,
+      'create-game': <CreateGame />,
+      'details': <GameDetails id={argument} />
+    };
+
+    return routes[rootPath]
   }
 
   return (
@@ -29,7 +43,7 @@ function App() {
       <Header navigationChangeHandler={navigationChangeHandler} />
 
       <main id="main-content">
-        {routes[page] || <ErrorPage />}
+        {router(page) || <ErrorPage />}
       </main>
 
     </div>
