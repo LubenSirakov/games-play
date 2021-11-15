@@ -4,6 +4,9 @@ import Header from "./components/Header.js";
 import WelcomeWorld from "./components/WelcomeWorld.js";
 import GameCatalog from "./components/GameCatalog.js";
 import CreateGame from "./components/CreateGame.js";
+import Login from "./components/Login.js";
+import Register from "./components/Register.js";
+import ErrorPage from "./components/ErrorPage.js";
 
 function App() {
   const [page, setPage] = useState('/home');
@@ -11,6 +14,8 @@ function App() {
   const routes = {
     '/home': < WelcomeWorld />,
     '/games': <GameCatalog />,
+    '/login': <Login />,
+    '/register': <Register />,
     '/create-game': <CreateGame />
   };
 
@@ -24,7 +29,7 @@ function App() {
       <Header navigationChangeHandler={navigationChangeHandler} />
 
       <main id="main-content">
-        {routes[page] || <h2>No Page Found</h2>}
+        {routes[page] || <ErrorPage />}
       </main>
 
     </div>

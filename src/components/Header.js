@@ -21,7 +21,7 @@ const Header = ({
                     <a href="/logout">Logout</a>
                 </div>
                 <div id="guest">
-                    <a href="/logout">Login</a>
+                    <a href="/login">Login</a>
                     <a href="/register">Register</a>
                 </div>
             </nav>
