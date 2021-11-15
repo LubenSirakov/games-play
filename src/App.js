@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Header from "./components/Header.js";
 import WelcomeWorld from "./components/WelcomeWorld.js";
-import GameCatalog from "./components/GameCatalog.js";
+import GameCatalog from "./components/GameCatalog/GameCatalog.js";
 import CreateGame from "./components/CreateGame.js";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
